@@ -18,7 +18,7 @@ public:
                 nums[i] = y[r];
                 r++;
             }
-            else if(k<n){
+            else {
                 nums[i] = x[k];
             k++;
             }
