@@ -1,6 +1,5 @@
-/* Write your PL/SQL query statement below */
-SELECT p.product_id ,  NVL(ROUND(SUM(p.price * u.units) / NULLIF(SUM(u.units), 0), 2), 0) AS average_price
-FROM Prices p
-LEFT JOIN UnitsSold u
-ON p.product_id = u.product_id AND u.purchase_date BETWEEN p.start_date AND p.end_date
-GROUP BY p.product_id;
+--Write your PL/SQL query statement */
+SELECT PRICES.PRODUCT_ID, NVL(ROUND(SUM(PRICES.price* UNITSSOLD.units)/ SUM(UNITSSOLD.units), 2),0) as average_price FROM PRICES
+LEFT JOIN UNITSSOLD ON PRICES.PRODUCT_ID = UNITSSOLD.PRODUCT_ID
+AND UNITSSOLD.purchase_date BETWEEN  PRICES.start_date AND PRICES.end_date
+GROUP BY PRICES.product_ID;
