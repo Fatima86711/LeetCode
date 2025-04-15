@@ -1,4 +1,4 @@
 /* Write your PL/SQL query statement below */
-SELECT EmployeeUNI.unique_id, Employees.name
-FROM Employees LEFT JOIN EmployeeUNI 
-on Employees.id = EmployeeUNI.id;
+SELECT eu.unique_id, e.name FROM EMPLOYEES e
+LEFT JOIN EMPLOYEEUNI eu
+ON e.id = eu.id
