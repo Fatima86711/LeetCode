@@ -1,3 +1,3 @@
 /* Write your PL/SQL query statement below */
-SELECT teacher_id, COUNT( Distinct subject_id ) AS cnt FROM Teacher
-GROUP BY (teacher_id) ; 
+SELECT teacher_id , count(distinct subject_id) as cnt FROM TEACHER
+group by (teacher_id)
