@@ -1,22 +1,25 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        int number = x;
-        int reverse = 0;
-        int lastDigit ;
-        if(number <0){
+        int reverse=0;
+        int digit;
+        int num = x;
+        if(x<0){
             return false;
         }
         while(x!=0){
-            lastDigit = x%10;
-            if(reverse >INT_MAX/10 ||(reverse == INT_MAX/10 && lastDigit>7 ) ) return 0;
-            if(reverse<INT_MIN/10 || (reverse == INT_MIN/10 &&lastDigit<-8)) return 0;
-            reverse = (reverse*10)+lastDigit;
-            x = x/10;
+            digit= x%10;
+            if((reverse <INT_MIN/10)|| (reverse>INT_MAX/10))
+            return false;
+            reverse= reverse*10 + digit;
+            x=x/10;
         }
-        if(reverse == number){
+        if(reverse==num){
             return true;
         }
-        else return false;
+        else {
+            return false;
+        }
+
     }
 };
