@@ -1,23 +1,24 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        string characters = "";
-        for(char c : s){
-            if(isalnum(c)){    //check for alpha numeric characters
-                characters+= tolower(c);
+        int size = s.size();
+        int l=0;
+        int counter=0;
+        for(int i=0;i<size;i++){
+            if(isalnum(s[i])){
+                s[counter++]= tolower(s[i]);
+            }
         }
-    }
-    int left = 0;
-    int right = characters.size()-1;
-    while(left<right){
-        if(characters[left]!=characters[right]){
-           return false;
+int right= counter-1 ;
+int left= 0;
+        while(right>left){
+            if(s[left]!=s[right]){
+                return false;
+            }
+            left++;
+            right--;
         }
-        left++;
-        right--;
+         return true;
     }
-    return true;
-    }
-
     
 };
