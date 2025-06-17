@@ -7,9 +7,9 @@ public:
             nums[lastElementFoundAt++]= nums[i];
             }
         }
-        for(int i = lastElementFoundAt;i<nums.size();i++){
+        for(int i = lastElementFoundAt; i<nums.size();i++){
             nums[i] = 0;
         }
+        
     }
-
 };
