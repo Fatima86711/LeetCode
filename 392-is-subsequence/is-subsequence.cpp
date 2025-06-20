@@ -7,9 +7,10 @@ public:
         if(n==0){
             return true;
         }
-        for(int i  = 0;i<m&&j<n;i++){
-            if(s[j]==t[i])
-            j++;
+        for(int i= 0;i<m && j<n; i++){
+            if(s[j]==t[i]){
+                j++;
+            }
             if(j==n){
                 return true;
             }
