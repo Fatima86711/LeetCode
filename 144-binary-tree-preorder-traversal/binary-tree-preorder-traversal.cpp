@@ -12,14 +12,14 @@
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
-        vector<int>temp;
-        helperFunction(root, temp);
-        return temp;
+        vector <int> result;
+        helperFunction(root, result);
+        return result;
     }
-    void helperFunction(TreeNode*root, vector<int>&temp){
-        if(root==NULL) return;
-        temp.push_back(root->val);
-        helperFunction(root->left, temp);
-        helperFunction(root->right, temp);
+    void helperFunction(TreeNode*root,vector<int>&result){
+        if(root==NULL) return ;
+        result.push_back(root->val);
+        helperFunction(root->left, result);
+        helperFunction(root->right, result);
     }
 };
