@@ -11,15 +11,37 @@
  */
 class Solution {
 public:
+// By Morris Traversal Approach
     vector<int> preorderTraversal(TreeNode* root) {
-        vector <int> result;
-        helperFunction(root, result);
-        return result;
-    }
-    void helperFunction(TreeNode*root,vector<int>&result){
-        if(root==NULL) return ;
-        result.push_back(root->val);
-        helperFunction(root->left, result);
-        helperFunction(root->right, result);
+        vector <int> inorder;
+
+        if(root==NULL){
+            return {};
+        }
+        TreeNode* curr = root;
+        while(curr != NULL){
+        if(curr->left ==NULL){
+            inorder.push_back(curr->val);
+            curr=curr->right;
+
+        }
+        else{
+            TreeNode* prev = curr->left;
+            while(prev->right && prev->right!=curr){
+                prev = prev->right;
+            }
+            if(prev->right==NULL){
+                prev->right= curr;
+                
+                inorder.push_back(curr->val);
+                curr=curr->left;
+            }
+            else{
+                prev->right=NULL;
+                curr=curr->right;
+            }
+        }
+        }
+        return inorder;
     }
 };
