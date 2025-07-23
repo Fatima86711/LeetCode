@@ -8,8 +8,8 @@ public:
     for(auto &it:trust){
         int trustigPerson =it[0];
         int trustedPerson =it[1];
-        outdegree[trustigPerson]++;
-        indegree[trustedPerson]++;
+        outdegree[trustigPerson]++;//person trusts these many people
+        indegree[trustedPerson]++;//person trusted by these many people
 
     }
     for(int i =1;i<=n;i++){
