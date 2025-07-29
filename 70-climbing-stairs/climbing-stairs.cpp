@@ -1,15 +1,20 @@
 class Solution {
 public:
     int climbStairs(int n) {
-        if (n == 1) return 1;
-        if (n == 2) return 2;
+        vector <int> tabulation(n+1,0);
+        tabulation[1] = 1;
+        if(n==1){
         
-        int first = 1, second = 2, current = 0;
-        for (int i = 3; i <= n; ++i) {
-            current = first + second;
-            first = second;
-            second = current;
+        return tabulation[1];
         }
-        return current;
+        
+        tabulation[2] = 2;
+        if(n==2){
+        return tabulation[2];
+        }
+        for(int i =3;i<=n;i++ ){
+            tabulation[i] = tabulation[i-1] + tabulation[i-2];
+        }
+        return tabulation[n];
     }
 };
