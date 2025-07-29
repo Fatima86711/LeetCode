@@ -1,17 +1,16 @@
 class Solution {
 public:
-    int minCost(vector<int>&cost,int currentIndex, vector<int>&memo){
-        if(currentIndex>=cost.size()){
-            return 0;
-        }
-        if(memo[currentIndex]!=-1){
-            return memo[currentIndex];
-        }
-        memo[currentIndex]=cost[currentIndex] + min(minCost(cost,currentIndex+1, memo),minCost(cost,currentIndex+2,memo));
-        return memo[currentIndex];
-    }
     int minCostClimbingStairs(vector<int>& cost) {
-        vector<int> memo(cost.size()+2,-1);
-     return min( minCost(cost,0,memo),  minCost(cost,1,memo));
+        vector<int>tabulation(cost.size());
+        
+        tabulation[0]=cost[0];
+        if(cost.size()==1){
+            return tabulation[0];
+        }
+        tabulation[1]=cost[1];
+        for(int i = 2 ;i<cost.size();i++){
+            tabulation[i] = cost[i] + min(tabulation[i-1],tabulation[i-2]);
+        }
+        return min(tabulation[cost.size()-1],tabulation[cost.size()-2]);
     }
 };
