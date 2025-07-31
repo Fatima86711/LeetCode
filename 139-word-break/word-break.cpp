@@ -2,9 +2,7 @@ class Solution {
    
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        if(s.empty()){
-            return true;
-        }
+        
         vector<bool>tb(s.size()+1,false);
         tb[0] = true;
     unordered_set <string> dict;
