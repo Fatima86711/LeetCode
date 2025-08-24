@@ -3,6 +3,7 @@ public:
     bool isSafe(int col, int  row, vector<string>& board, int n) {
         int duprow = row;
         int dupcol = col;
+        //for upper left diagnol
         while (row >= 0 && col >= 0) {
             if (board[row][col] == 'Q') {
                 return false;
@@ -12,6 +13,7 @@ public:
         }
         row = duprow;
         col = dupcol;
+        //for horizontal left row
         while (col >= 0) {
             if (board[row][col] == 'Q') {
                 return false;
@@ -19,6 +21,7 @@ public:
             col--;
         }
         col = dupcol;
+        // for lower left diagnol
         while(row<n && col>=0){
             if(board[row][col]=='Q'){
                 return false;
@@ -47,10 +50,10 @@ public:
     }
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> ans;
-        vector<string> board;
+        vector<string> board(n);
         string s(n, '.');
         for (int i = 0; i < n; i++) {
-           board.push_back(s);
+           board[i] = s;
         }
         solve(0,  ans, board, n);
          return ans;
